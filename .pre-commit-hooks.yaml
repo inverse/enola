@@ -1,0 +1,7 @@
+- id: enola-check
+  name: Enola Architecture Gate
+  description: Automatically installs enola and runs it to detect structural regressions.
+  entry: enola check
+  args: ['--fail-on=layers']
+  language: system
+  pass_filenames: false

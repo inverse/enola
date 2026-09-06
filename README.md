@@ -150,6 +150,28 @@ enola check --fail-on=layers    # …and exit 1 on the part you named
 
 Same commands and same exit codes in CI, on every pull request. Every flag and all four exit codes: **[docs/CLI.md](docs/CLI.md)**.
 
+## Use with `pre-commit`
+
+For Git-level enforcement, add Enola to your `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/inverse/enola
+  rev: feat/add-fail-on-layers-default
+  hooks:
+    - id: enola-check
+
+### Customize your policy
+
+To customize the checks, pass `args` in your `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/inverse/enola
+  rev: feat/add-fail-on-layers-default
+  hooks:
+    - id: enola-check
+      args: ['--fail-on=layers,intent,cycles']
+```
+
 ## What the verdict tells you
 
 A verdict you can't act on is just a red light. Here is the `storage`/`notify` run from the top of this page in full - verbatim output, nothing trimmed:
