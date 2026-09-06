@@ -152,21 +152,24 @@ Same commands and same exit codes in CI, on every pull request. Every flag and a
 
 ## Use with `pre-commit`
 
-For Git-level enforcement, add Enola to your `.pre-commit-config.yaml`:
+Add Enola to your `.pre-commit-config.yaml`:
 
 ```yaml
-- repo: https://github.com/inverse/enola
-  rev: feat/add-fail-on-layers-default
+- repo: https://github.com/enola-labs/enola
+  rev: main
   hooks:
     - id: enola-check
+```
+
+Defaults to `--fail-on=layers`.
 
 ### Customize your policy
 
 To customize the checks, pass `args` in your `.pre-commit-config.yaml`:
 
 ```yaml
-- repo: https://github.com/inverse/enola
-  rev: feat/add-fail-on-layers-default
+- repo: https://github.com/enola-labs/enola
+  rev: main
   hooks:
     - id: enola-check
       args: ['--fail-on=layers,intent,cycles']
